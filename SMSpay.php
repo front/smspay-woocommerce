@@ -79,7 +79,7 @@ function woocommerce_smspay_init() {
 
         function check_login_status() {
             if ($this->loggedIn) {
-                echo '<div id="message" class="updated fade"><p>' . sprintf(__('SMSpay: Loged in.', 'woothemes'), admin_url('admin.php?page=woocommerce')) . '</p></div>';
+                echo '<div id="message" class="updated fade"><p>' . sprintf(__('SMSpay: Logged in.', 'woothemes'), admin_url('admin.php?page=woocommerce')) . '</p></div>';
             } else {
                 echo '<div class="error"><p>' . sprintf(__('SMSpay: Login failed.', 'woothemes'), admin_url('admin.php?page=woocommerce')) . '</p></div>';
             }
