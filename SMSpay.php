@@ -419,14 +419,14 @@ function woocommerce_smspay_init() {
 
                                     break;
                                 case 'CANCELLED': $order->update_status('failed');
-                                    $order->add_order_note(__('Payment cancelled by cutomer or SmsPay', 'woothemes') . $_REQUEST['cancelReason']);
-                                    $this->msg['message'] = __("Payment has been cacelled.", 'woothemes');
+                                    $order->add_order_note(__('Payment cancelled by customer or SMSpay', 'woothemes') . $_REQUEST['cancelReason']);
+                                    $this->msg['message'] = __("Payment has been cancelled.", 'woothemes');
                                     $this->msg['class'] = 'error';
 
                                     break;
                             }
                         } else {
-                            $order->add_order_note(_('Error. The order has been completed before confirmation or data does not corespond to payment!', 'woothemes'));
+                            $order->add_order_note(_('Error. The order has been completed before confirmation or data does not correspond to payment!', 'woothemes'));
                             $this->msg['message'] = "(($order->status != 'completed') && ($amount == $order->get_total()) && ($merchant_id == $this->merchantId) && ($currency == $this_currency)
                                 && ($shipping == $order->get_total_shipping()))";
                             $this->msg['class'] = 'error';
