@@ -4,12 +4,12 @@
 }
 
 .phone-input label{
-	display:inline !important;
+    display:inline !important;
 }
 
 #phoneprefix{
-	display:inline !important;
-	height: 25px !important;
+    display:inline !important;
+    height: 25px !important;
 }
 
 #phone_numb{
@@ -28,5 +28,10 @@
 }
 
 .woocommerce .checkout select {
-	padding: 0 !important;
+    padding: 0 !important;
+}
+
+.payment_method_smspay img{
+    max-height: 50px;
+    width: auto;
 }
