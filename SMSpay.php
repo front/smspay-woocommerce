@@ -19,6 +19,9 @@ if (!defined('ABSPATH')) {
 }
 DEFINE('SMSPAY_DIR', plugins_url(basename(plugin_dir_path(__FILE__)), basename(__FILE__)) . '/');
 add_action('plugins_loaded', 'woocommerce_smspay_init', 0);
+//Localization
+load_plugin_textdomain( 'smspay', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+
 function woocommerce_smspay_init() {
     if (!class_exists('WC_Payment_Gateway')) {
         return;
@@ -194,7 +197,7 @@ function woocommerce_smspay_init() {
         function admin_options() {
             ?>
             <h3><?php _e('SMSpay', 'smspay'); ?></h3>
-            <p><?php _e('SMSpay is a simple and powerful payment solution. <a href="http://smspay.io">Click here to get an account</a>.', 'smspay'); ?></p>
+            <p><?php _e('The SMSpay Gateway is simple and powerful. <a href="http://">Click here to get an account</a>.', 'smspay'); ?></p>
             <table class="form-table">
                 <?php $this->generate_settings_html(); ?>
             </table>
@@ -326,7 +329,7 @@ function woocommerce_smspay_init() {
                 if ($smspay_response['statusCode'] == 401) {
                     if (!$this->logg_merchant_user()) {
                         if (!$this->logg_merchant_user()) {
-                            wc_add_notice(__('SMSpay could not process your payment. Please try again later!', 'smspay'));
+                            wc_add_notice(__('SmsPay could not process your payment. Please try again later!', 'smspay'));
                             $order->add_order_note(__('Error. Could not logg in to SMSpay.', 'smspay'));
                         } else {
                             $smspay_response = $this->send_order_for_payment($smspay_request);
@@ -365,8 +368,8 @@ function woocommerce_smspay_init() {
                             $order->reduce_order_stock();
                             $woocommerce->cart->empty_cart();
                             break;
-                        case 'CANCELLED': $order->update_status('on-hold', __('Payment cancelled by cutomer or SMSpay', 'smspay'));
-                            $order->add_order_note(__('Payment cancelled by cutomer or SMSpay', 'smspay'));
+                        case 'CANCELLED': $order->update_status('on-hold', __('Payment cancelled by cutomer or SmsPay', 'smspay'));
+                            $order->add_order_note(__('Payment cancelled by cutomer or SmsPay', 'smspay'));
                             break;
                     }
                 }
@@ -398,7 +401,7 @@ function woocommerce_smspay_init() {
                                 ($shipping == $order->get_total_shipping())) {
                             switch ($status) {
                                 case 'NEW': $order->update_status('on-hold');
-                                    $order->add_order_note(__('Payment was created with the reference id:', 'smspay') . $reference);
+                                    $order->add_order_note(__('Paymnet was created with the reference id:', 'smspay') . $reference);
                                     break;
                                 case 'PENDING': $order->update_status('pending');
                                     $order->add_order_note(__('Waiting customer confirmation/registration', 'smspay'));
@@ -413,7 +416,7 @@ function woocommerce_smspay_init() {
                                 case 'COMPLETED': $order->update_status('processing');
                                     $order->add_order_note(__('Payment complete!', 'smspay'));
                                     $order->payment_complete();
-                                    $this->msg['message'] = __("Thank you for shopping with us. Your account has been charged and your transaction is successful.", 'smspay');
+                                    $this->msg['message'] = __("Thank you for shopping with us. Your account has been charged and your transaction is successful. We will be shipping your order to you soon.", 'smspay');
                                     $this->msg['class'] = 'woocommerce_message';
                                     if ($order->status == 'processing') {
                                         
