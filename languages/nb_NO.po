@@ -127,7 +127,7 @@ msgid "Order error. Please check order for any error."
 msgstr "Feil i ordren. Vennligst se over etter feil."
 
 #: SMSpay.php:351
-msgid "Payment was created with the refrence id:"
+msgid "Payment was created with the reference id:"
 msgstr "Betaling gjennomført med følgende id:"
 
 #: SMSpay.php:356 SMSpay.php:407

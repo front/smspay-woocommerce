@@ -317,7 +317,7 @@ function woocommerce_smspay_init() {
                 if (array_key_exists('status', $smspay_response)) {
                     switch (strtoupper($smspay_response['status'])) {
                         case 'NEW': $order->update_status('on-hold');
-                            $order->add_order_note(__('Payment was created with the refrence id:', 'smspay') . $smspay_response['reference']);
+                            $order->add_order_note(__('Payment was created with the reference id:', 'smspay') . $smspay_response['reference']);
                             $order->reduce_order_stock();
                             $woocommerce->cart->empty_cart();
                             break;

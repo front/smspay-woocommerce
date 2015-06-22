@@ -123,7 +123,7 @@ msgid "Order error. Please check order for any error."
 msgstr ""
 
 #: SMSpay.php:351
-msgid "Payment was created with the refrence id:"
+msgid "Payment was created with the reference id:"
 msgstr ""
 
 #: SMSpay.php:356 SMSpay.php:407
