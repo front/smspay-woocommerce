@@ -1,6 +1,6 @@
 # SMSpay WooCommerce
 Drop in SMSpay payment method for WooCommerce
 
-## Todo
-- Replace stageing URLs with prod URLs
+## Todos
 - Code cleanup
+- Add test mode switch in GUI
