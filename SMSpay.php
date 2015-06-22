@@ -3,7 +3,7 @@
  *
  * @package WordPress
  * @subpackage WooCommerce
- * @author NextLogic
+ * @author NextLogic / Frontkom
  * @copyright Frontkom
  * @since 1.0.0
  *
@@ -12,8 +12,8 @@
  * Plugin URI:  http://smspay.io/
  * Description: Provides a gateway for WooCommerce to make payments with SMSpay.
  * Version:     1.0.0
- * Author:      NextLogic
- * Author URI:  http://www.nextlogic.ro/en/
+ * Author:      NextLogic / Frontkom
+ * Author URI:  https://www.frontkom.no/
  * License:     GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain: smspay
