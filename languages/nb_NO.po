@@ -151,7 +151,7 @@ msgid "Payment cancelled by cutomer or SmsPay"
 msgstr "Betaling avbrutt av bruker eller SMSpay"
 
 #: SMSpay.php:404
-msgid "Paymnet was created with the reference id:"
+msgid "Payment was created with the reference id:"
 msgstr "Betaling opprettet med følgende id:"
 
 #: SMSpay.php:408

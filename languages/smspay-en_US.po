@@ -147,7 +147,7 @@ msgid "Payment cancelled by cutomer or SmsPay"
 msgstr ""
 
 #: SMSpay.php:404
-msgid "Paymnet was created with the reference id:"
+msgid "Payment was created with the reference id:"
 msgstr ""
 
 #: SMSpay.php:408

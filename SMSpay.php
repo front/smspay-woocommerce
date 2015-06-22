@@ -372,7 +372,7 @@ function woocommerce_smspay_init() {
                                 ($shipping == $order->get_total_shipping())) {
                             switch ($status) {
                                 case 'NEW': $order->update_status('on-hold');
-                                    $order->add_order_note(__('Paymnet was created with the reference id:', 'smspay') . $reference);
+                                    $order->add_order_note(__('Payment was created with the reference id:', 'smspay') . $reference);
                                     header("HTTP/1.1 202 OK");
                                     echo 'ACCEPTED';die();
                                     break;
