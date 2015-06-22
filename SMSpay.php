@@ -181,7 +181,7 @@ function woocommerce_smspay_init() {
 		function admin_options() {
 			?>
             <h3><?php _e( 'SMSpay', 'smspay' ); ?></h3>
-            <p><?php _e( 'The SMSpay Gateway is simple and powerful. <a href="http://">Click here to get an account</a>.', 'smspay' ); ?></p>
+            <p><?php _e( 'SMSpay is simple and powerful. <a href="https://admin.smspay.io/register">Click here to get an account</a>.', 'smspay' ); ?></p>
             <table class="form-table">
                 <?php $this->generate_settings_html(); ?>
             </table>

@@ -84,7 +84,7 @@ msgstr "Dette er API-passordet fra SMSpay."
 
 #: SMSpay.php:200
 msgid ""
-"The SMSpay Gateway is simple and powerful. <a href=\"http://\">Click here to "
+"SMSpay is simple and powerful. <a href=\"https://\admin.smspay.io/register">Click here to "
 "get an account</a>."
 msgstr ""
 
