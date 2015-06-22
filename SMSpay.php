@@ -109,36 +109,7 @@ function woocommerce_smspay_init() {
             }
             return $this->loggedIn;
         }
-        function logg_merchant_user_test() {
-            $merchant = array(
-                'user' => $this->user,
-                'password' => $this->password
-            );
-            $url = $this->merchant_login_url;
-            $ch = curl_init();
-            $postString = '';
-            foreach ($merchant as $key => $value) {
-                $postString.= $key . '=' . $value . '&';
-            }
-            $postString = rtrim($postString, '&');
-            curl_setopt($ch, CURLOPT_URL, $url);
-            curl_setopt($ch, CURLOPT_POST, count($merchant));
-            curl_setopt($ch, CURLOPT_POSTFIELDS, $postString);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            $response = curl_exec($ch);
-            curl_close($ch);
-            $merchant_response = json_decode($response, true);
-            if (array_key_exists('statusCode', $merchant_response))
-                if ($merchant_response['statusCode'] == 401) {
-                    $this->loggedIn = false;
-                }
-            if (array_key_exists('merchantId', $merchant_response)) {
-                $this->merchantId = $merchant_response['merchantId'];
-                $this->loggedIn = true;
-                $this->token = $merchant_response['token'];
-            }
-            return $merchant_response;
-        }
+        
         /**
          * SSL check
          */
@@ -271,10 +242,8 @@ function woocommerce_smspay_init() {
             curl_setopt($ch, CURLOPT_POSTFIELDS, $postString);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             $response = curl_exec($ch);
-//            $response = array("status" => "NEW");
             curl_close($ch);
             return json_decode($response, true);
-//            return $response;
         }
         /**
          * Process Payment 
@@ -381,11 +350,12 @@ function woocommerce_smspay_init() {
         /*                WC()->api_request_url( '' ); */
         public function check_response() {
             global $woocommerce; 
-            
+           
             if (isset($_REQUEST['invoice']) && isset($_REQUEST['reference'])) {
                 $order_id = filter_var($_REQUEST['invoice'], FILTER_SANITIZE_NUMBER_INT);
                 if ($order_id) {
                     try {
+                                    
                         $order = new WC_Order($order_id);
                         $reference = filter_var($_REQUEST['reference'],FILTER_SANITIZE_STRING);
                         $amount = filter_var($_REQUEST['amount'], FILTER_SANITIZE_NUMBER_INT);
@@ -393,6 +363,7 @@ function woocommerce_smspay_init() {
                         $merchant_id = filter_var($_REQUEST['merchantId'],FILTER_SANITIZE_STRING);
                         $currency = filter_var($_REQUEST['currency'],FILTER_SANITIZE_STRING);
                         $status = strtoupper(filter_var($_REQUEST['status'],FILTER_SANITIZE_STRING));
+                        
                         $this_currency = filter_var(get_woocommerce_currency(),FILTER_SANITIZE_STRING);
                         if (($order->status != 'completed') && 
                                 ($amount == filter_var($order->get_total()*100, FILTER_SANITIZE_NUMBER_INT)) && 
@@ -402,16 +373,22 @@ function woocommerce_smspay_init() {
                             switch ($status) {
                                 case 'NEW': $order->update_status('on-hold');
                                     $order->add_order_note(__('Paymnet was created with the reference id:', 'smspay') . $reference);
+                                    header("HTTP/1.1 202 OK");
+                                    echo 'ACCEPTED';die();
                                     break;
                                 case 'PENDING': $order->update_status('pending');
                                     $order->add_order_note(__('Waiting customer confirmation/registration', 'smspay'));
                                     $this->msg['message'] = __("Thank you for shopping with us. Right now your payment is waiting for your confirmation or registration.", 'smspay');
                                     $this->msg['class'] = 'woocommerce_message woocommerce_message_info';
+                                    header("HTTP/1.1 202 OK");
+                                    echo 'ACCEPTED';die();
                                     break;
                                 case 'PROCESSING': $order->update_status('pending');
                                     $order->add_order_note(__('Processing payment', 'smspay'));
                                     $this->msg['message'] = __("Your payment is being processed;", 'smspay');
                                     $this->msg['class'] = 'woocommerce_message woocommerce_message_info';
+                                    header("HTTP/1.1 202 OK");
+                                    echo 'ACCEPTED';die();
                                     break;
                                 case 'COMPLETED': $order->update_status('processing');
                                     $order->add_order_note(__('Payment complete!', 'smspay'));
@@ -424,11 +401,15 @@ function woocommerce_smspay_init() {
                                         $order->payment_complete();
                                         $order->add_order_note(__('SMSpay payment successful<br/>Unnique Id from PayU: ', 'smspay') . $reference);
                                     }
+                                    header("HTTP/1.1 202 OK");
+                                    echo 'ACCEPTED';die();
                                     break;
                                 case 'CANCELLED': $order->update_status('failed');
                                     $order->add_order_note(__('Payment cancelled by customer or SMSpay ', 'smspay') . filter_var($_REQUEST['cancelReason'],FILTER_SANITIZE_STRING));
                                     $this->msg['message'] = __("Payment has been cancelled.", 'smspay');
                                     $this->msg['class'] = 'error';
+                                    header("HTTP/1.1 202 OK");
+                                    echo 'ACCEPTED';die();
                                     break;
                             }
                         } else {
@@ -439,11 +420,12 @@ function woocommerce_smspay_init() {
                         }
                         add_action('the_content', array(&$this, 'showMessage'));
                     } catch (Exception $ex) {
-                        $msg = 'Error';
+                        wp_die("SMSpay Request Failure", "SMSpay", array('response' => 400));
                     }
                 } else {
                     wp_die("SMSpay Request Failure", "SMSpay", array('response' => 400));
                 }
+                
             }
         }
         function showMessage($content) {
