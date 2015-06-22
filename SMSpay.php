@@ -1,10 +1,9 @@
 <?php
 /**
- * Description
  *
  * @package WordPress
  * @subpackage WooCommerce
- * @author innerfire
+ * @author NextLogic
  * @copyright Frontkom
  * @since 1.0.0
  *
