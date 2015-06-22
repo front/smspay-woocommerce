@@ -45,8 +45,8 @@ function woocommerce_smspay_init() {
                 'subscription_date_changes',
             );
             // Create plugin fields and settings
-            $this->payment_url = 'http://api.smspay.io/v1/payments';
-            $this->merchant_login_url = 'http://api.smspay.io/v1/login';
+            $this->payment_url = 'https://api.smspay.io/v1/payments';
+            $this->merchant_login_url = 'https://api.smspay.io/v1/login';
             $this->init_form_fields();
             $this->init_settings();
             // Get setting values
@@ -77,7 +77,7 @@ function woocommerce_smspay_init() {
             }
         }
         /*
-         * Login as a merchant user to get id and token http://api.smspay.io/v1/
+         * Login as a merchant user to get id and token https://api.smspay.io/v1/
          */
         function logg_merchant_user() {
             $merchant = array(
@@ -224,7 +224,7 @@ function woocommerce_smspay_init() {
             return ob_get_clean();
         }
         /*
-         * Send order for payment at http://api.smspay.io/v1/
+         * Send order for payment at https://api.smspay.io/v1/
          */
         function send_order_for_payment($smspay_request) {
             $header = array();
