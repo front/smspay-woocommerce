@@ -45,8 +45,8 @@ function woocommerce_smspay_init() {
                 'subscription_date_changes',
             );
             // Create plugin fields and settings
-            $this->payment_url = 'http://api.smspay.devz.no/v1/payments';
-            $this->merchant_login_url = 'http://api.smspay.devz.no/v1/login';
+            $this->payment_url = 'http://api.smspay.io/v1/payments';
+            $this->merchant_login_url = 'http://api.smspay.io/v1/login';
             $this->init_form_fields();
             $this->init_settings();
             // Get setting values
@@ -77,7 +77,7 @@ function woocommerce_smspay_init() {
             }
         }
         /*
-         * Login as a merchant user to get id and token http://api.smspay.devz.no/v1/
+         * Login as a merchant user to get id and token http://api.smspay.io/v1/
          */
         function logg_merchant_user() {
             $merchant = array(
@@ -109,7 +109,7 @@ function woocommerce_smspay_init() {
             }
             return $this->loggedIn;
         }
-        
+
         /**
          * SSL check
          */
@@ -224,7 +224,7 @@ function woocommerce_smspay_init() {
             return ob_get_clean();
         }
         /*
-         * Send order for payment at http://api.smspay.devz.no/v1/
+         * Send order for payment at http://api.smspay.io/v1/
          */
         function send_order_for_payment($smspay_request) {
             $header = array();
@@ -246,7 +246,7 @@ function woocommerce_smspay_init() {
             return json_decode($response, true);
         }
         /**
-         * Process Payment 
+         * Process Payment
          * */
         function process_payment($order_id) {
             global $woocommerce;
@@ -290,10 +290,10 @@ function woocommerce_smspay_init() {
             $smspay_request['success_url'] = WC()->api_request_url('WC_Gateway_SMSpay');
             $smspay_request['failure_url'] = WC()->api_request_url('WC_Gateway_SMSpay');
             $smspay_request['update_url'] = WC()->api_request_url('WC_Gateway_SMSpay');
-            
+
             $smspay_response = $this->send_order_for_payment($smspay_request);
-            
-            
+
+
             if (isset($smspay_response['statusCode'])) {
                 if ($smspay_response['statusCode'] == 401) {
                     if (!$this->logg_merchant_user()) {
@@ -349,13 +349,13 @@ function woocommerce_smspay_init() {
         }
         /*                WC()->api_request_url( '' ); */
         public function check_response() {
-            global $woocommerce; 
-           
+            global $woocommerce;
+
             if (isset($_REQUEST['invoice']) && isset($_REQUEST['reference'])) {
                 $order_id = filter_var($_REQUEST['invoice'], FILTER_SANITIZE_NUMBER_INT);
                 if ($order_id) {
                     try {
-                                    
+
                         $order = new WC_Order($order_id);
                         $reference = filter_var($_REQUEST['reference'],FILTER_SANITIZE_STRING);
                         $amount = filter_var($_REQUEST['amount'], FILTER_SANITIZE_NUMBER_INT);
@@ -363,12 +363,12 @@ function woocommerce_smspay_init() {
                         $merchant_id = filter_var($_REQUEST['merchantId'],FILTER_SANITIZE_STRING);
                         $currency = filter_var($_REQUEST['currency'],FILTER_SANITIZE_STRING);
                         $status = strtoupper(filter_var($_REQUEST['status'],FILTER_SANITIZE_STRING));
-                        
+
                         $this_currency = filter_var(get_woocommerce_currency(),FILTER_SANITIZE_STRING);
-                        if (($order->status != 'completed') && 
-                                ($amount == filter_var($order->get_total()*100, FILTER_SANITIZE_NUMBER_INT)) && 
-                                ($merchant_id == $this->merchantId) && 
-                                ($currency == $this_currency) && 
+                        if (($order->status != 'completed') &&
+                                ($amount == filter_var($order->get_total()*100, FILTER_SANITIZE_NUMBER_INT)) &&
+                                ($merchant_id == $this->merchantId) &&
+                                ($currency == $this_currency) &&
                                 ($shipping == $order->get_total_shipping())) {
                             switch ($status) {
                                 case 'NEW': $order->update_status('on-hold');
@@ -396,7 +396,7 @@ function woocommerce_smspay_init() {
                                     $this->msg['message'] = __("Thank you for shopping with us. Your account has been charged and your transaction is successful. We will be shipping your order to you soon.", 'smspay');
                                     $this->msg['class'] = 'woocommerce_message';
                                     if ($order->status == 'processing') {
-                                        
+
                                     } else {
                                         $order->payment_complete();
                                         $order->add_order_note(__('SMSpay payment successful<br/>Unnique Id from PayU: ', 'smspay') . $reference);
@@ -425,7 +425,7 @@ function woocommerce_smspay_init() {
                 } else {
                     wp_die("SMSpay Request Failure", "SMSpay", array('response' => 400));
                 }
-                
+
             }
         }
         function showMessage($content) {
