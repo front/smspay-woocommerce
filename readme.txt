@@ -1,56 +1,36 @@
 === Plugin Name ===
-Contributors: frontkom, nextlogic
+Contributors: perandre
 Tags: e-commerce, ecommerce payment gateway, gateway, mastercard, online payment gateway, payment, payment gateway, payment gateway providers, payment gateway software, payment gateways, recurring billing, secure payment processing, shopping cart, subscriptions, visa, woocommerce, woocommerce extensions, woocommerce payment gateway, woocommerce payment gateway integration, woocommerce payment gateway plugin, woocommerce payment methods, wordpress ecommerce, wordpress payment gateway
 Requires at least: 4.0
 Tested up to: 4.2.2
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-SMSpay Payment Gateway for WooCommerce allows you to accept payments via SMS on WooCommerce, using the SMSpay service.
+Mobile friendly SMSpay Payment Gateway for WooCommerce
 
 == Description ==
 
-This is the long description.  No limit, and you can use Markdown (as well as in the following sections).
+SMSpay Payment Gateway for WooCommerce allows you to accept payments via SMS on WooCommerce, using the SMSpay.io service.
 
-For backwards compatibility, if this section is missing, the full length of the short description will be used, and
-Markdown parsed.
+SMSpay is unique, as you can receive payments via operator charges and/or VISA/Mastercard. You only need one solution for payments.
 
-A few notes about the sections above:
+It's free to get started; you only pay per transaction (SMS payments only).
 
-*   "Contributors" is a comma separated list of wp.org/wp-plugins.org usernames
-*   "Tags" is a comma separated list of tags that apply to the plugin
-*   "Requires at least" is the lowest version that the plugin will work on
-*   "Tested up to" is the highest version that you've *successfully used to test the plugin*. Note that it might work on
-higher versions... this is just the highest one you've verified.
-*   Stable tag should indicate the Subversion "tag" of the latest stable version, or "trunk," if you use `/trunk/` for
-stable.
-
-    Note that the `readme.txt` of the stable tag is the one that is considered the defining one for the plugin, so
-if the `/trunk/readme.txt` file says that the stable tag is `4.3`, then it is `/tags/4.3/readme.txt` that'll be used
-for displaying information about the plugin.  In this situation, the only thing considered from the trunk `readme.txt`
-is the stable tag pointer.  Thus, if you develop in trunk, you can update the trunk `readme.txt` to reflect changes in
-your in-development version, without having that information incorrectly disclosed about the current stable version
-that lacks those changes -- as long as the trunk's `readme.txt` points to the correct stable tag.
-
-    If no stable tag is provided, it is assumed that trunk is stable, but you should specify "trunk" if that's where
-you put the stable version, in order to eliminate any doubt.
 
 == Installation ==
 
-This section describes how to install the plugin and get it working.
-
-e.g.
-
-1. Upload `plugin-name.php` to the `/wp-content/plugins/` directory
+1. Upload the plugin
 1. Activate the plugin through the 'Plugins' menu in WordPress
-1. Place `<?php do_action('plugin_name_hook'); ?>` in your templates
+1. Click the menu item WooCommerce => Settings => Checkout => SMSpay
+1. Click the link to sign up (it's free!)
+1. Enter fields, and click to activate before hitting Save. That's it!
 
 == Frequently Asked Questions ==
 
-= A question that someone might have =
+= What are the prices? =
 
-An answer to that question.
+In Norway, the standard amount is 6% + 3 NOK. 
 
 = What about foo bar? =
 
@@ -66,11 +46,9 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 
 == Changelog ==
 
+= 1.0.1 =
+- Fix broken signup link
+- Fix language issue for Norwegian
+
 = 1.0 =
-* First public release of the plugin.
-
-== Arbitrary section ==
-
-You may provide arbitrary sections, in the same format as the ones above.  This may be of use for extremely complicated
-plugins where more information needs to be conveyed that doesn't fit into the categories of "description" or
-"installation."  Arbitrary sections will be shown below the built-in sections outlined above.
+- First public release of the plugin.
