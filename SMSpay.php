@@ -376,6 +376,15 @@ function woocommerce_smspay_init() {
 		public function check_response() {
 			global $woocommerce;
 
+			if (empty($_REQUEST['invoice'])) {
+				global $HTTP_RAW_POST_DATA;
+
+				if ($this->is_JSON($HTTP_RAW_POST_DATA)) {
+					$post_data = json_decode($HTTP_RAW_POST_DATA, TRUE);
+					$_REQUEST  = array_merge($_REQUEST, $post_data);
+				}
+			}
+
 			if ( isset($_REQUEST['invoice']) && isset($_REQUEST['reference']) ) {
 				$order_id = filter_var( $_REQUEST['invoice'], FILTER_SANITIZE_NUMBER_INT );
 				if ( $order_id ) {
@@ -392,9 +401,9 @@ function woocommerce_smspay_init() {
 						$this_currency = filter_var( get_woocommerce_currency(), FILTER_SANITIZE_STRING );
 						if ( ($order->status != 'completed') &&
 								($amount === filter_var( $order->get_total() * 100, FILTER_SANITIZE_NUMBER_INT )) &&
-								($merchant_id === $this->merchantId) &&
+								((int) $merchant_id === $this->merchantId) &&
 								($currency === $this_currency) &&
-								($shipping === $order->get_total_shipping()) ) {
+								((float) $shipping === $order->get_total_shipping()) ) {
 							switch ( $status ) {
 								case 'NEW': $order->update_status( 'on-hold' );
 									$order->add_order_note( __( 'Payment was created with the reference id:', 'smspay' ) . $reference );
