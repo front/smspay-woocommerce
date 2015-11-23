@@ -477,6 +477,16 @@ function woocommerce_smspay_init() {
 		function receipt_page($order) {
 			echo '<p>' . __( 'Thank you for your order.', 'smspay' ) . '</p>';
 		}
+
+		/**
+		 * Helper function to check if string is JSON.
+		 *
+		 * @return boolean
+		 */
+		function is_JSON() {
+				call_user_func_array('json_decode', func_get_args());
+				return (json_last_error() === JSON_ERROR_NONE);
+		}
 	}
 
 	function add_smspay_class($methods) {
