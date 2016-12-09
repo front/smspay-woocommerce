@@ -61,6 +61,9 @@ Again: use the card option if these limitations are bad for you.
 = How do I know the exact payout amount? =
 See the report in admin.smspay.io
 
+= Can I use SMSpay in my country? =
+SMSpay is currently available for payments in Norwegian Kroner (NOK)
+
 == Screenshots ==
 
 1. SMSpay payment option in frontend
