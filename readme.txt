@@ -3,7 +3,7 @@ Contributors: roborn, perandre
 Tags: e-commerce, ecommerce payment gateway, gateway, mastercard, online payment gateway, payment, payment gateway, payment gateway providers, payment gateway software, payment gateways, recurring billing, secure payment processing, shopping cart, subscriptions, visa, woocommerce, woocommerce extensions, woocommerce payment gateway, woocommerce payment gateway integration, woocommerce payment gateway plugin, woocommerce payment methods, wordpress ecommerce, wordpress payment gateway
 Requires at least: 4.0
 Tested up to: 4.7
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -71,6 +71,9 @@ SMSpay is currently available for payments in Norwegian Kroner (NOK)
 3. SMSpay admin UI for reports and advanced options
 
 == Changelog ==
+
+= 1.1.1 =
+- Fix shipping total on payment confirmation
 
 = 1.1.0 =
 - Add sandbox mode
