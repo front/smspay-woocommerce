@@ -11,7 +11,7 @@
  * Plugin Name: SMSpay Payment Gateway for WooCommerce
  * Plugin URI:  http://smspay.io/
  * Description: Provides a gateway for WooCommerce to make payments with SMSpay.
- * Version:     1.1.2
+ * Version:     1.1.3
  * Author:      NextLogic / Frontkom
  * Author URI:  https://www.frontkom.no/
  * License:     GPLv2 or later
@@ -380,7 +380,7 @@ function woocommerce_smspay_init() {
 					switch ( strtoupper( $smspay_response['status'] ) ) {
 						case 'NEW':
 							$order->update_status( 'on-hold' );
-							$order->add_order_note( __( 'Payment was created with the reference id:', 'smspay' ) . $smspay_response['reference'] );
+							$order->add_order_note( __( 'Payment initiated with reference id:', 'smspay' ) . $smspay_response['reference'] );
 							$order->reduce_order_stock();
 							$woocommerce->cart->empty_cart();
 							break;

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: SMSpay Payment Gateway for WooCommerce\n"
-"POT-Creation-Date: 2017-01-11 10:50+0000\n"
-"PO-Revision-Date: 2017-01-11 10:50+0000\n"
+"POT-Creation-Date: 2017-01-11 12:35+0000\n"
+"PO-Revision-Date: 2017-01-11 12:36+0000\n"
 "Last-Translator: Roberto Ornelas <rob@front.no>\n"
 "Language-Team: \n"
 "Language: en_US\n"
@@ -138,8 +138,8 @@ msgstr ""
 msgid "Order error. Please check order for any error."
 msgstr ""
 
-#: SMSpay.php:383 SMSpay.php:451
-msgid "Payment was created with the reference id:"
+#: SMSpay.php:383
+msgid "Payment initiated with reference id:"
 msgstr ""
 
 #: SMSpay.php:390 SMSpay.php:459
@@ -160,6 +160,10 @@ msgstr ""
 
 #: SMSpay.php:411 SMSpay.php:412
 msgid "Payment cancelled by cutomer or SMSpay"
+msgstr ""
+
+#: SMSpay.php:451
+msgid "Payment was created with the reference id:"
 msgstr ""
 
 #: SMSpay.php:460
