@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: SMSpay Payment Gateway for WooCommerce\n"
-"POT-Creation-Date: 2017-01-10 12:28+0000\n"
-"PO-Revision-Date: 2017-01-10 12:29+0000\n"
+"POT-Creation-Date: 2017-01-11 10:48+0000\n"
+"PO-Revision-Date: 2017-01-11 10:48+0000\n"
 "Last-Translator: Roberto Ornelas <rob@front.no>\n"
 "Language-Team: \n"
 "Language: nb\n"
@@ -66,6 +66,10 @@ msgstr "Beskrivelse"
 msgid "This controls the description which the user sees during checkout."
 msgstr "Dette er endrer beskrivelsen som brukeren ser i checkout."
 
+#: SMSpay.php:183
+msgid "SMSpay lets you pay via your phone bill."
+msgstr "SMSpay lar deg betale via mobilregningen."
+
 #: SMSpay.php:186
 msgid "Username"
 msgstr "Brukernavn"
@@ -95,20 +99,22 @@ msgid ""
 "SMSpay is simple and powerful. <a href=\"https://admin.smspay.io/register"
 "\">Click here to get an account</a>."
 msgstr ""
+"SMSpay er enkel og kraftig. <a href=\"https://admin.smspay.io/register"
+"\">Klikk her for å få en konto</a>."
 
 #: SMSpay.php:228
 msgid "Phone"
 msgstr "Mobilnr."
 
-#: SMSpay.php:246
+#: SMSpay.php:248
 msgid "SMSpay phone number not valid."
 msgstr "SMSpay telefonnummer er ikke godkjent."
 
-#: SMSpay.php:315
+#: SMSpay.php:317
 msgid "The shop currency "
 msgstr "Nettbutikkens valuta"
 
-#: SMSpay.php:315
+#: SMSpay.php:317
 msgid ""
 " is not supported by SMSpay. The only currencies accepted are 'NOK', 'SEK', "
 "'DKK', 'EUR', 'USD' and 'GBP' "
@@ -116,53 +122,53 @@ msgstr ""
 " er ikke støttet av SMSpay. De eneste som støttes, er 'NOK', 'SEK', 'DKK', "
 "'EUR', 'USD' og 'GBP' "
 
-#: SMSpay.php:323 SMSpay.php:364
+#: SMSpay.php:325 SMSpay.php:366
 msgid "SMSpay could not process your payment. Please try again later!"
 msgstr ""
 "SMSpay klarte ikke å gjennomføre betalingen. Vennligst prøv igjen senere!"
 
-#: SMSpay.php:324
+#: SMSpay.php:326
 msgid "Error. Could not logg in to SMSpay."
 msgstr "Feilmelding: Klarte ikke logge inn i SMSpay."
 
-#: SMSpay.php:365
+#: SMSpay.php:367
 msgid "Error. Could not log in to SMSpay."
 msgstr "Feil. Kunne ikke logge inn til SMSpay."
 
-#: SMSpay.php:370
+#: SMSpay.php:372
 msgid "The order seems to be invalid. Please inform the site administrator."
 msgstr ""
 "Ordren ser ikke gyldig ut. Vennligst si i fra til administrator for siden."
 
-#: SMSpay.php:371
+#: SMSpay.php:373
 msgid "Order error. Please check order for any error."
 msgstr "Feil i ordren. Vennligst se over etter feil."
 
-#: SMSpay.php:381 SMSpay.php:449
+#: SMSpay.php:383 SMSpay.php:451
 msgid "Payment was created with the reference id:"
 msgstr "Betaling gjennomført med følgende id:"
 
-#: SMSpay.php:388 SMSpay.php:457
+#: SMSpay.php:390 SMSpay.php:459
 msgid "Waiting customer confirmation/registration"
 msgstr "Venter på kundens bekreftelse/registrering"
 
-#: SMSpay.php:395 SMSpay.php:467
+#: SMSpay.php:397 SMSpay.php:469
 msgid "Processing payment"
 msgstr "Gjennomfører betaling"
 
-#: SMSpay.php:401
+#: SMSpay.php:403
 msgid "Payment complete"
 msgstr "Betaling gjennomført"
 
-#: SMSpay.php:402 SMSpay.php:477
+#: SMSpay.php:404 SMSpay.php:479
 msgid "Payment complete!"
 msgstr "Betaling gjennomført!"
 
-#: SMSpay.php:409 SMSpay.php:410
+#: SMSpay.php:411 SMSpay.php:412
 msgid "Payment cancelled by cutomer or SMSpay"
 msgstr "Betaling avbrutt av bruker eller SMSpay"
 
-#: SMSpay.php:458
+#: SMSpay.php:460
 msgid ""
 "Thank you for shopping with us. Right now your payment is waiting for your "
 "confirmation or registration."
@@ -170,11 +176,11 @@ msgstr ""
 "Takk for at du handler hos oss. Akkurat nå venter vi på din bekreftelse "
 "eller registrering."
 
-#: SMSpay.php:468
+#: SMSpay.php:470
 msgid "Your payment is being processed;"
 msgstr "Betalingen din behandles;"
 
-#: SMSpay.php:479
+#: SMSpay.php:481
 msgid ""
 "Thank you for shopping with us. Your account has been charged and your "
 "transaction is successful. We will be shipping your order to you soon."
@@ -182,19 +188,19 @@ msgstr ""
 "Takk for at du handler hos oss. Din konto har blitt belastet, og betalingen "
 "er gjennomført. Du vil motta varene snarlig."
 
-#: SMSpay.php:485
+#: SMSpay.php:487
 msgid "SMSpay payment successful<br/>Unique Id from PayU: "
-msgstr ""
+msgstr "SMSpay betaling vellykket<br/>Unik Id fra PayU: "
 
-#: SMSpay.php:494
+#: SMSpay.php:496
 msgid "Payment cancelled by customer or SMSpay "
 msgstr "Betaling avbrutt av kunde eller SMSpay"
 
-#: SMSpay.php:495
+#: SMSpay.php:497
 msgid "Payment has been cancelled."
 msgstr "Betalingen er avbrutt."
 
-#: SMSpay.php:503
+#: SMSpay.php:505
 msgid ""
 "Error. The order has been completed before confirmation or data does not "
 "correspond to payment!"
@@ -202,7 +208,7 @@ msgstr ""
 "Feil: Ordren har blitt fullført før bekreftelsen, eller det kan være data "
 "som ikke samsvarer med betalingen."
 
-#: SMSpay.php:530
+#: SMSpay.php:532
 msgid "Thank you for your order."
 msgstr "Takk for din bestilling."
 

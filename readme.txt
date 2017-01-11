@@ -3,7 +3,7 @@ Contributors: roborn, perandre
 Tags: e-commerce, ecommerce payment gateway, gateway, mastercard, online payment gateway, payment, payment gateway, payment gateway providers, payment gateway software, payment gateways, recurring billing, secure payment processing, shopping cart, subscriptions, visa, woocommerce, woocommerce extensions, woocommerce payment gateway, woocommerce payment gateway integration, woocommerce payment gateway plugin, woocommerce payment methods, wordpress ecommerce, wordpress payment gateway
 Requires at least: 4.0
 Tested up to: 4.7
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -11,7 +11,7 @@ A mobile friendly payment solution for WooCommerce -trigger payment via SMS!
 
 == Description ==
 
-SMSpay Payment Gateway for WooCommerce allows you to accept payments via SMS on WooCommerce, using the SMSpay.io service.
+SMSpay Payment Gateway for WooCommerce allows Norwegian merchants to accept payments via SMS on WooCommerce, using the SMSpay.io service.
 
 You can receive payments in two ways:
 - Via operator
@@ -41,14 +41,14 @@ SMSpay is excellent for:
 - Virtual products
 - Books and magazines
 - Events
-- Basically: products cheaper than 500 NOK
+- Basically: products cheaper than 1000 NOK
 
 You can however use SMSpay for all kinds of products and prices, by enabling the card option. A monthly fee is needed for this.
 
 The card option let's you store the user's VISA, and trigger payment from that card via SMS later.
 
 = When is SMSpay a bad fit =
-- For products costing more than 500 NOK
+- For products costing more than 1000 NOK
 - Electronics and jewellery
 
 Again: use the card option if these limitations are bad for you.

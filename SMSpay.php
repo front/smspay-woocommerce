@@ -11,7 +11,7 @@
  * Plugin Name: SMSpay Payment Gateway for WooCommerce
  * Plugin URI:  http://smspay.io/
  * Description: Provides a gateway for WooCommerce to make payments with SMSpay.
- * Version:     1.1.1
+ * Version:     1.1.2
  * Author:      NextLogic / Frontkom
  * Author URI:  https://www.frontkom.no/
  * License:     GPLv2 or later
@@ -180,7 +180,7 @@ function woocommerce_smspay_init() {
 					'title'       => __( 'Description', 'smspay' ),
 					'type'        => 'textarea',
 					'description' => __( 'This controls the description which the user sees during checkout.', 'smspay' ),
-					'default'     => 'Pay with your credit card or phone bill via SMSpay.',
+					'default'     => __( 'SMSpay lets you pay via your phone bill.', 'smspay' ),
 				),
 				'user'        => array(
 					'title'       => __( 'Username', 'smspay' ),
@@ -229,9 +229,11 @@ function woocommerce_smspay_init() {
 					<span class="required">*</span></label>
 				<select name="country_code" id="phoneprefix" class="woocommerce-select">
 					<option value="47">+47</option>
+					<!--
 					<option value="40">+40</option>
 					<option value="46">+46</option>
 					<option value="351">+351</option>
+					-->
 				</select>
 				<input type="number" class="input-phone" id="phone_numb" name="phone_numb" />
 			</p>
